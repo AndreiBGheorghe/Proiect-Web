@@ -1,0 +1,91 @@
+html{
+    font-size: 18px;
+}
+
+#grid-pagina{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: "welcome welcome welcome"
+                         "promotii promotii orar"
+                         "fig1 produse produse"
+                         "fig2 produse produse"
+                         "fig3 produse produse"
+                         "index-intrebari index-intrebari index-intrebari"
+                         "anunturi anunturi anunturi";
+
+}
+
+#grid-pagina>*{
+    outline: 2px solid orangered;
+    padding: 1em;
+}
+
+#grid-pagina>figure{
+    margin: 0;
+}
+
+#welcome{
+    grid-area: welcome;
+}
+#promotii{
+    grid-area: promotii;
+}
+#anunturi{
+    grid-area: anunturi;
+}
+#orar{
+    grid-area: orar;
+}
+#fig1{
+    grid-area: fig1;
+}
+#fig2{
+    grid-area: fig2;
+}
+#fig3{
+    grid-area: fig3;
+}
+#produse{
+    grid-area: produse;
+}
+#index-intrebari{
+    grid-area: index-intrebari;
+}
+
+.intro-oferte{
+    font-size: 1.5rem;
+}
+
+.minge{
+    width: 500px;
+}
+
+@media screen and (max-width:1200px){
+    html{
+        font-size: 15px;
+    }
+
+    #grid-pagina{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: "welcome welcome"
+                             "promotii promotii"
+                             "orar orar"
+                             "fig1 produse"
+                             "fig2 produse"
+                             "fig3 produse"
+                             "index-intrebari index-intrebari"
+                             "anunturi anunturi";
+    
+    }
+}
+
+@media screen and (max-width:800px){
+    html{
+        font-size: 12px;
+    }
+
+    #grid-pagina{
+        display: block;
+    }
+}

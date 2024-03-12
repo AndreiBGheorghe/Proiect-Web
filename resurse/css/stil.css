@@ -1,0 +1,15 @@
+body{
+    --culoare1:#ea7c33;
+    --spatiere:100px;
+    padding-left:var(--spatiere);
+    padding-right:var(--spatiere);
+}
+
+p{
+    color:red;
+    border: 2px solid var(--culoare1);
+}
+
+h2{
+    background-color:var(--culoare1);
+}

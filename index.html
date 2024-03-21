@@ -21,180 +21,165 @@
         <link rel="stylesheet" href="resurse/css/stil.css" type="text/css"/>
         <link rel="stylesheet" href="resurse/css/layout.css" type="text/css"/>
         <link rel="stylesheet" href="resurse/css/general.css" type="text/css"/>
-        <style>
-            p{
-                color:green;
-            }
-        </style>
+        <link rel="stylesheet" href="resurse/css/nav.css" type="text/css"/>
+        <link rel="stylesheet" href="resurse/css/nav1000.css" type="text/css" media="screen and (max-width:1000px)"/>
+        <link rel="stylesheet" href="resurse/css/nav700.css" type="text/css" media="screen and (max-width:700px)"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     </head>
     <body>
         <header>
-            <h1>BBallStore</h1>
+            <h1>BBallStore <i class="fa-solid fa-basketball fa-bounce"></i></i></h1>
             <nav>
-                <ul>
+                <label id="hamburger" for="ch-menu">
+                    <img src="resurse/imagini/hamburger_icon_alb.png" alt="Menu">
+                </label>
+                <input id="ch-menu" type="checkbox">
+                <ul class="meniu">
+                    <li><a href="#welcome">Acasa</a></li>
                     <li>
-                        Acasa
+                        <a href="#promotii">Promotii</a>
                         <ul>
-                            <li><a href="#welcome">Bine ati venit!</a></li>
-                            <li>
-                                <a href="#promotii">Promotii</a>
-                                <ul>
-                                    <li><a href="#oferte">Oferte</a></li>
-                                    <li><a href="#super">Super oferte</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="#oferte">Oferte</a></li>
+                            <li><a href="#super">Super oferte</a></li>
                         </ul>
                     </li>
-                    <li>Produse</li>
+                    <li><a href="#anunturi">Anunturi</a></li>
+                    <li><a href="#orar">Orar</a></li>
+                    <li><a href="#produse">Produse</a></li>
                 </ul>
             </nav>
         </header>
         <main>  
             <div id="grid-pagina">
-                <section id="welcome">
+                <section id="prezentare">
                     <h2>Bine ati venit!</h2>
-                    <p class="intro" style="color:orangered; text-decoration:underline;">Va multumim ca ati ales site-ul BBallStore pentru a va achizitiona articolele de baschet!</p>
-                    <div class="intro-oferte"><div>Tricouri</div><div>Pantaloni</div><div>Mingi</div></div>
+                    <p>Va multumim ca ati ales site-ul BBallStore pentru a va achizitiona articolele de baschet!</p>
                     <q>I've failed over and over and over again in my life. And that is why I succeed.</q> - Michael Jordan<br/>
                     <a target="_blank" href="https://www.google.com">Google</a><br/>
-                    <img src="./resurse/imagini/Basketball.png" alt="Basketball"/>
-                    <div class="taburi-iframe">
-                        <a href="https://www.youtube-nocookie.com/embed/mtIdBf_e1NM?si=PKCMAleGLSnw2lQ6" target="ifr-v1">Video 1</a><br/>
-                        <a href="https://www.youtube.com/embed/_Q8obt4xuEw?si=AuDEZQMO1gJPluSN" target="ifr-v2">Video 2</a>
-                    </div>
-                    <iframe name="ifr-v1" width="560" height="315" src="https://www.youtube-nocookie.com/embed/mtIdBf_e1NM?si=PKCMAleGLSnw2lQ6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <iframe name="ifr-v2" width="560" height="315" src="https://www.youtube.com/embed/_Q8obt4xuEw?si=AuDEZQMO1gJPluSN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <details>
                         <summary>Putem face livrare la domiciliu?</summary>
                         <p>Desigur!</p>
                     </details>
                     <figure>
-                        <picture>
-                            <source srcset="./resurse/imagini/bb1.jpg" media="(max-width:700px)"/>
+                        <picture id="poza1">
+                            <source srcset="./resurse/imagini/bb3.jpg" media="(max-width:700px)"/>
                             <source srcset="./resurse/imagini/bb2.jpg" media="(max-width:1000px)"/>
-                            <img class="minge" src="./resurse/imagini/bb3.jpg" alt="minge" title="Basketball"/>
+                            <img class="minge" src="./resurse/imagini/bb1.jpg" alt="minge" title="Basketball"/>
                         </picture>
                         <figcaption>Minge de baschet</figcaption>
                     </figure>
+                </section>
+                <section id="tabel">
+                    <div id="tabelorar">
+                        Tabel Orar
+                        <table id="tab-orar">
+                            <thead>
+                                <tr>
+                                    <th>Perioadă</th>
+                                    <th>Zi</th>
+                                    <th>Interval dimineata</th>
+                                    <th>Interval pauza</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5">Zile<br/>Lucrătoare</td>
+                                    <td>Luni</td>
+                                    <td>9-22</td>
+                                    <td>13-14</td>
+                                </tr>
+                                <tr>
+
+                                    <td>Marti</td>
+                                    <td>9-22</td>
+                                    <td>13-14</td>
+                                </tr>
+                                <tr>
+                                    <td>Miercuri</td>
+                                    <td>9-22</td>
+                                    <td>13-14</td>
+                                </tr>
+                                <tr>
+                                    <td>Joi</td>
+                                    <td>9-22</td>
+                                    <td>13-14</td>
+                                </tr>
+                                <tr>
+                                    <td>Vineri</td>
+                                    <td>9-21</td>
+                                    <td>13-14</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">Weekend</td>
+                                    <td>Sambata</td>
+                                    <td>10-20</td>
+                                    <td>12-13</td>
+                                </tr>
+                                <tr>
+                                    <td>Duminica</td>
+                                    <td>10-19</td>
+                                    <td>12-13</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr><td colspan="4">Programul poate oricand sa sufere modificari!</td></tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </section>
+                <section id="diverse">
                     <ul>
                         <li><b>BBallStore</b> este un magazin, fizic sau online, de articole sportive de baschet, fondat in anul 2024.</li>
                         <li>Magazinul contine incaltaminte, pantaloni, tricouri, <i>jersey-uri</i> si accesorii precum: minge, genunchiere, cotiere, sosete, toate fiind de specialitate. Cateva dintre firmele prezente in depozitul nostru sunt: Nike, Adidas, Under Armour, Anta, Reebok, Puma si nu numai.</li>
                         <li>Acest magazin are o locatie in Bucuresti si ofera atat optiunea de a prelua articolele fizic, cat si <strong>transport la domiciliu</strong> oriunde in tara.</li>
                         <li><em>Totul despre excelenta!</em></li>
                     </ul>
-                </section>
-                <section id="promotii">
+                    <div class="container-iframe">
+                        <div class="taburi-iframe">
+                            <a class="tab1" href="https://www.youtube.com/embed/_Q8obt4xuEw?si=AuDEZQMO1gJPluSN" target="ifr-v1">Video 1</a>
+                            <a class="tab2" href="https://www.youtube-nocookie.com/embed/mtIdBf_e1NM?si=PKCMAleGLSnw2lQ6" target="ifr-v1">Video 2</a>
+                        </div>
+                        <iframe class="video-iframe" name="ifr-v1" width="560" height="315" src="https://www.youtube-nocookie.com/embed/mtIdBf_e1NM?si=PKCMAleGLSnw2lQ6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
                     <h2>Promotii</h2>
-                    <section id="oferte">
                         <h3>Oferte</h3>
                         <p>Mai jos puteti vedea articolele ce prezinta oferte de la <s>20% reducere</s><ins>30% reducere</ins>.</p>
-                    </section>
-                    <section id="super">
                         <h3>Super oferte</h3>
                         <p>Mai jos puteti vedea <abbr title="articole">art.</abbr> ce prezinta super oferte.</p>
-                    </section>
+                </section>
+                <section id="calendar">
+                    Calendar Evenimente<br>
+                    Lorem ipsum
                 </section>
                 <section id="anunturi">
-                    Anunturi
+                    Anunturi<br>
+                    Lorem ipsum
                 </section>
-                <section id="orar">
-                    <h2>Orar</h2>
-                    <table id="tab-orar">
-                        <thead>
-                            <tr>
-                                <th>Cod</th>
-                                <th>Perioadă</th>
-                                <th>Zi</th>
-                                <th>Interval dimineata</th>
-                                <th>Pauza de masa</th>
-                                <th>Interval seară</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td rowspan="5">Zile<br/>Lucrătoare</td>
-                                <td>Luni</td>
-                                <td>10-12</td>
-                                <td>12-14</td>
-                                <td>14-20</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                               
-                                <td>Marti</td>
-                                <td>9-12</td>
-                                <td>12-14</td>
-                                <td>14-21</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                               
-                                <td>Miercuri</td>
-                                <td>9-11</td>
-                                <td>11-13</td>
-                                <td>14-21</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                               
-                                <td>Joi</td>
-                                <td>9-11</td>
-                                <td>11-13</td>
-                                <td>14-21</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                               
-                                <td>Vineri</td>
-                                <td>9-12</td>
-                                <td>12-14</td>
-                                <td>14-19</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td rowspan="2">Weekend</td>
-                                <td>Sambata</td>
-                                <td>10-12</td>
-                                <td>12-13</td>
-                                <td>13-16</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Duminica</td>
-                                <td>10-14</td>
-                                <td>-</td>
-                                <td>inchis</td>
-                            </tr>
-                        </tbody>
-                        <tfoot><tr><td colspan="6">Închis cu ocazia sărbătorilor legale sau când ne e mai lene așa.</td></tr></tfoot>
-                    </table>
+                <section id="lista">
+                    Lista utilizatori<br>
+                    Lorem ipsum
                 </section>
-                <section id="fig1">
-                    Fig1
+                <section id="dateu">
+                    Date despre utilizatori<br>
+                    Lorem ipsum
                 </section>
-                <section id="fig2">
-                    Fig2
-                </section>
-                <section id="fig3">
-                    Fig3+
-                </section>
-                <section id="produse">
-                    Produse
-                </section>
-                <section id="index-intrebari">
-                    Index-intrebari
+                <section id="dates">
+                    Date despre site si server<br>
+                    Lorem ipsum
                 </section>
             </div>
         </main>
         <footer>
-            <a href="#" title="mergi sus" id="link-top"><div id="triunghi">#</div></a>
+            <a href="#" title="Inceputul Paginii" id="link-top"><div id="sageata"></div></a>
             <address>
                 Adresa: Strada Academiei nr.14<br/>
-                <a href="mailto:andrei_ghe2003@yahoo.ro">Mail</a><br/>
-                <a href="tel:+40761874291">Telefon</a><br/>
-                <a href="skype:andreispiry?message">Skype</a><br/>
-                <a href="https://www.google.com/maps/place/Faculty+of+Mathematics+and+Computer+Science/@44.4355393,26.0970118,17z/data=!3m1!4b1!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?entry=ttu" target="_blank">Maps</a>
+                <a href="mailto:andrei_ghe2003@yahoo.ro"><i class="fa-solid fa-envelope"></i>Mail</a><br/>
+                <a href="tel:+40761874291"><i class="fa-solid fa-phone"></i>Telefon</i></a><br/>
+                <a href="skype:andreispiry?message"><i class="fa-brands fa-skype"></i>Skype</a><br/>
+                <a href="https://www.google.com/maps/place/Faculty+of+Mathematics+and+Computer+Science/@44.4355393,26.0970118,17z/data=!3m1!4b1!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?entry=ttu" target="_blank"><i class="fa-solid fa-map-pin"></i>Maps</a>
             </address>
                 <small>© Copyright <time datetime="2024-03-04">04 Martie 2024</time></small>
         </footer>

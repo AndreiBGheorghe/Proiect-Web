@@ -1,91 +1,94 @@
 html{
-    font-size: 18px;
+    font-size: 1.2em;
+    transition: all 1s linear;
 }
 
 #grid-pagina{
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-areas: "welcome welcome welcome"
-                         "promotii promotii orar"
-                         "fig1 produse produse"
-                         "fig2 produse produse"
-                         "fig3 produse produse"
-                         "index-intrebari index-intrebari index-intrebari"
-                         "anunturi anunturi anunturi";
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas:"prezentare prezentare prezentare prezentare"
+                        "prezentare prezentare prezentare prezentare"
+                        "diverse diverse diverse diverse"
+                        "diverse diverse diverse diverse"
+                        "calendar tabel tabel anunturi"
+                        "lista dateu dates dates";
 
 }
 
 #grid-pagina>*{
-    outline: 2px solid orangered;
-    padding: 1em;
+    border: 3px solid var(--culoare-negru);
+    border-radius: 10px;
+    background: var(--culoare-galben);
+    padding: 10px;
 }
 
-#grid-pagina>figure{
-    margin: 0;
+#prezentare{
+    grid-area: prezentare;
 }
 
-#welcome{
-    grid-area: welcome;
+#diverse{
+    grid-area: diverse;
 }
-#promotii{
-    grid-area: promotii;
+
+#calendar{
+    grid-area: calendar;
 }
+
+#tabel{
+    grid-area: tabel;
+}
+
 #anunturi{
     grid-area: anunturi;
 }
-#orar{
-    grid-area: orar;
-}
-#fig1{
-    grid-area: fig1;
-}
-#fig2{
-    grid-area: fig2;
-}
-#fig3{
-    grid-area: fig3;
-}
-#produse{
-    grid-area: produse;
-}
-#index-intrebari{
-    grid-area: index-intrebari;
+
+#lista{
+    grid-area: lista;
 }
 
-.intro-oferte{
-    font-size: 1.5rem;
+#dateu{
+    grid-area: dateu;
 }
 
-.minge{
-    width: 500px;
+#dates{
+    grid-area: dates;
 }
 
 @media screen and (max-width:1200px){
     html{
-        font-size: 15px;
+        font-size: 1em;
+        transition: all 1s linear;
     }
 
     #grid-pagina{
-        grid-template-columns: repeat(2,1fr);
-        grid-template-areas: "welcome welcome"
-                             "promotii promotii"
-                             "orar orar"
-                             "fig1 produse"
-                             "fig2 produse"
-                             "fig3 produse"
-                             "index-intrebari index-intrebari"
-                             "anunturi anunturi";
-    
+        gap: 5px;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-areas:"prezentare prezentare prezentare"
+                            "prezentare prezentare prezentare"
+                            "diverse diverse diverse"
+                            "diverse diverse diverse"
+                            "calendar tabel anunturi"
+                            "lista dateu dates";
     }
 }
 
 @media screen and (max-width:800px){
     html{
-        font-size: 12px;
+        font-size: 0.9em;
+        transition: all 1s linear;
     }
 
     #grid-pagina{
-        display: block;
+        gap: 2px;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas:"prezentare"
+                            "diverse"
+                            "calendar"
+                            "tabel"
+                            "anunturi"
+                            "lista"
+                            "dateu"
+                            "dates";
     }
 }

@@ -1,15 +1,42 @@
+header{
+    background: var(--culoare-rosu);
+    border: 4px solid var(--culoare-negru);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+
 body{
-    --culoare1:#ea7c33;
-    --spatiere:100px;
-    padding-left:var(--spatiere);
-    padding-right:var(--spatiere);
+    padding-left:100px;
+    padding-right:100px;
+    background: var(--culoare-mov);
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-p{
-    color:red;
-    border: 2px solid var(--culoare1);
+footer{
+    background: var(--culoare-portocaliu);
+    border: 3px solid var(--culoare-negru);
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 5px;
 }
 
-h2{
-    background-color:var(--culoare1);
+@media screen and (max-width:1200px){
+    body{
+        padding-left:50px;
+        padding-right:50px;
+    }
+}
+
+@media screen and (max-width:800px){
+    body{
+        padding-left:20px;
+        padding-right:20px;
+    }
+}
+
+.minge{
+    width: 50%;
 }

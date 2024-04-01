@@ -92,3 +92,9 @@ html{
                             "dates";
     }
 }
+
+@media print{
+    #grid-pagina{
+        display:block;
+    }
+}

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+#hamburger {
+  display: block;
+}
+
+#hamburger > img {
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+ul.meniu {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+#ch-menu:checked + ul.meniu {
+  display: block;
+  z-index: 2;
+  position: relative;
+  animation-name: aparitie_meniu_p;
+  animation-iteration-count: 1;
+  animation-duration: 1.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+nav ul.meniu li {
+  width: 100%;
+}
+
+nav ul.meniu > li ul {
+  position: absolute;
+  width: 100%;
+  z-index: 200;
+  transform: scale(1, 1) !important;
+  opacity: 1 !important;
+}
+
+#ch-menu:checked + ul.meniu > li ul > * {
+  position: relative;
+  z-index: 200;
+}
+
+nav ul.meniu > li:hover > ul {
+  z-index: 200;
+  animation: none;
+}
+
+nav ul.meniu > li li a:before {
+  content: " ▷ ";
+  color: var(--culoare-alb);
+}
+
+.meniu li a::after {
+  display: none;
+}
+
+.meniu li a:hover {
+  background-color: var(--culoare-rosu);
+}
+
+@keyframes aparitie_meniu_p {
+  0% {
+    clip-path: circle(0% at 0 0);
+  }
+  100% {
+    clip-path: circle(150% at 0% 0%);
+  }
+}
+
+/*# sourceMappingURL=nav800.css.map */

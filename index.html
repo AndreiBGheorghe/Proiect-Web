@@ -22,37 +22,43 @@
         <link rel="stylesheet" href="resurse/css/layout.css" type="text/css"/>
         <link rel="stylesheet" href="resurse/css/general.css" type="text/css"/>
         <link rel="stylesheet" href="resurse/css/nav.css" type="text/css"/>
-        <link rel="stylesheet" href="resurse/css/nav1000.css" type="text/css" media="screen and (max-width:1000px)"/>
-        <link rel="stylesheet" href="resurse/css/nav700.css" type="text/css" media="screen and (max-width:700px)"/>
+        <link rel="stylesheet" href="resurse/css/nav1200.css" type="text/css" media="screen and (max-width:1200px)"/>
+        <link rel="stylesheet" href="resurse/css/nav800.css" type="text/css" media="screen and (max-width:800px)"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+        <link rel="stylesheet" href="resurse/css/eroare.css" type="text/css"/>
     </head>
     <body>
         <header>
             <h1>BBallStore <i class="fa-solid fa-basketball fa-bounce"></i></i></h1>
+        </header>
+        <main>
             <nav>
                 <label id="hamburger" for="ch-menu">
                     <img src="resurse/imagini/hamburger_icon_alb.png" alt="Menu">
                 </label>
                 <input id="ch-menu" type="checkbox">
                 <ul class="meniu">
-                    <li><a href="#welcome">Acasa</a></li>
                     <li>
-                        <a href="#promotii">Promotii</a>
+                        <a href="#prezentare" id="acasabuton">Acasa</a><i class="fa-solid fa-house" id="casameniu"></i>
                         <ul>
-                            <li><a href="#oferte">Oferte</a></li>
-                            <li><a href="#super">Super oferte</a></li>
+                            <li><a href="#diverse">Diverse</a></li>
+                            <li><a href="#calendar">Calendar</a></li>
+                            <li><a href="#tabel">Orar</a></li>
+                            <li><a href="#anunturi">Anunturi</a></li>
+                            <li><a href="#lista">Lista</a></li>
+                            <li><a href="#dateu">Date1</a></li>
+                            <li><a href="#dates">Date2</a></li>
                         </ul>
                     </li>
-                    <li><a href="#anunturi">Anunturi</a></li>
-                    <li><a href="#orar">Orar</a></li>
-                    <li><a href="#produse">Produse</a></li>
+                    <li><a href="#incaltaminte">Incaltaminte</a></li>
+                    <li><a href="#haine">Haine</a></li>
+                    <li><a href="#accesorii">Accesorii</a></li>
+                    <li><a href="#reduceri">Reduceri</a></li>
                 </ul>
-            </nav>
-        </header>
-        <main>  
+            </nav>  
             <div id="grid-pagina">
                 <section id="prezentare">
                     <h2>Bine ati venit!</h2>
@@ -173,6 +179,8 @@
             </div>
         </main>
         <footer>
+            <div class="banner">Acesta este un proiect scolar!</div>
+            <div class="watermark">Gheorghe Andrei-Bogdan</div>
             <a href="#" title="Inceputul Paginii" id="link-top"><div id="sageata"></div></a>
             <address>
                 Adresa: Strada Academiei nr.14<br/>

@@ -7,8 +7,8 @@ header{
 }
 
 body{
-    padding-left:100px;
-    padding-right:100px;
+    padding-left:75px;
+    padding-right:75px;
     background: var(--culoare-mov);
     font-family: "Madimi One", sans-serif;
     font-weight: 400;
@@ -32,11 +32,82 @@ footer{
 
 @media screen and (max-width:800px){
     body{
-        padding-left:20px;
-        padding-right:20px;
+        padding-left:25px;
+        padding-right:25px;
     }
 }
 
 .minge{
     width: 50%;
+}
+
+.watermark{
+    display:none;
+}
+
+@media print {
+    .banner {
+      display: block;
+      width: 80%;
+      border: 2px dashed var(--culoare-negru);
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+      top: 0;
+    }
+    img,video,nav,iframe,#link-top,figure,.container-iframe,.taburi-iframe {
+    display: none !important;
+    border: none !important;
+    border-color: none !important;
+    }
+    #grid-pagina{
+        display:block;
+    }
+    a{
+        text-decoration: none;
+        color: var(--culoare-negru);
+    }
+    header h1 {
+        text-align: center;
+        font-size: 2.5em;
+        line-height: 1;
+    }
+    header h1::before {
+        content: "";
+        display: block;
+        border-bottom: 2px solid var(--culoare-negru);
+        margin-bottom: 0.5em;
+    }
+    header::after {
+        content: "";
+        display: block;
+        page-break-after: always;
+    }
+    footer::before {
+        content: "";
+        display: block;
+        page-break-before: always;
+    }
+    .watermark {
+        display: block;
+        width: 100px;
+        height: 2cm;
+        border: 2px double var(--culoare-negru);
+        opacity: 0.65;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        z-index: 1;
+    }
+    @page {
+        :left {
+          margin-left: 2.5cm;
+          margin-right: 0.5cm;
+        }
+        :right {
+          margin-left: 0.5cm;
+          margin-right: 2.5cm;
+        }
+      }
 }

@@ -6,6 +6,7 @@ body{
   --culoare-alb: #FFFFFF;
   --culoare-mov: #8A4EE5;
 }
+/* Culorile din schema cromatica*/
 
 #link-top{
   position: fixed;
@@ -45,12 +46,12 @@ body{
 
 #tab-orar{
   border-spacing: 0px;
+  border-collapse: collapse;
   border: 5px solid var(--culoare-negru);
 }
 
 #tab-orar th, #tab-orar td{
   border: 1px solid var(--culoare-negru);
-  border-collapse: collapse;
 }
 
 #tab-orar tr:hover{
@@ -73,12 +74,18 @@ body{
     overflow-x: auto;
     max-width: 250px;
   }
+  .container-iframe{
+    font-size: 0.7em;
+  }
 }
 
 @media screen and (max-width:800px){
   #tabelorar{
     overflow-x: auto;
     max-width: 250px;
+  }
+  .container-iframe{
+    font-size: 0.6em;
   }
 }
 
@@ -104,14 +111,15 @@ body{
   transition: all 0.5s linear;
   margin-left: 5px;
   border: 5px solid var(--culoare-rosu);
-  border-radius: 00% 15% 15% 0%;
+  border-radius: 00% 20% 20% 0%;
   background-color: var(--culoare-portocaliu);
   text-decoration: none;
   color: var(--culoare-negru);
   padding: 15px;
+  width: 5%;
 }
 
 .taburi-iframe>a:hover{
-  padding-left: 50px;
+  padding-left: 40px;
   background-color: var(--culoare-galben);
 }

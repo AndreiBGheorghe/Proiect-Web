@@ -8,11 +8,35 @@
     </head>
     <body>
         <%- include("../fragmente/header.ejs") %>
-        <main>  
+        <main>
+            <nav>
+                <label id="hamburger" for="ch-menu">
+                    <img src="/resurse/imagini/hamburger_icon_alb.png" alt="Menu">
+                </label>
+                <input id="ch-menu" type="checkbox">
+                <ul class="meniu">
+                    <li>
+                        <a href="#prezentare" id="acasabuton">Acasa</a><i class="fa-solid fa-house" id="casameniu"></i>
+                        <ul>
+                            <li><a href="#diverse">Diverse</a></li>
+                            <li><a href="#calendar">Calendar</a></li>
+                            <li><a href="#tabel">Orar</a></li>
+                            <li><a href="#anunturi">Anunturi</a></li>
+                            <li><a href="#lista">Lista</a></li>
+                            <li><a href="#dateu">Date1</a></li>
+                            <li><a href="#dates">Date2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#incaltaminte">Incaltaminte</a></li>
+                    <li><a href="#haine">Haine</a></li>
+                    <li><a href="#accesorii">Accesorii</a></li>
+                    <li><a href="promotii">Promotii</a></li>
+                </ul>
+            </nav>  
             <div id="grid-pagina">
                 <section id="prezentare">
                     <h2>Bine ati venit!</h2>
-                    <p>Ip: <%-locals.ip%></p>
+                    <%/*%><button type="button" class="btn btn-primary btn-lg">Buton</button><%*/%>
                     <p>Va multumim ca ati ales site-ul BBallStore pentru a va achizitiona articolele de baschet!</p>
                     <q>I've failed over and over and over again in my life. And that is why I succeed.</q> - Michael Jordan<br/>
                     <a target="_blank" href="https://www.google.com" class="slider-button">Google</a><br/>
@@ -28,6 +52,21 @@
                         </picture>
                         <figcaption>Minge de baschet</figcaption>
                     </figure>
+                    <div id="container-video">
+                        <img class="poster" src="resurse/imagini/poster.png" alt="poster">
+                        <div id="centrare-video">
+                            <div id="clip-video">
+                                <div id="stil-video">
+                                    <video width="320" height="240"  playsinline autoplay loop muted>
+                                        <source src="resurse/video/Basketball.mp4" type="video/mp4">
+                                        <source src="resurse/video/Basketball.ogv" type="video/ogv">
+                                        <track default src="resurse/video/tracks/captions.vtt" kind="captions" srclang="ro" label="romana">
+                                        <track src="resurse/video/tracks/captions-en.vtt" kind="captions" srclang="en" label="engleza">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section id="tabel">
                     <div id="tabelorar">
@@ -99,13 +138,8 @@
                             <a class="tab1" href="https://www.youtube.com/embed/_Q8obt4xuEw?si=AuDEZQMO1gJPluSN" target="ifr-v1">Video 1</a>
                             <a class="tab2" href="https://www.youtube-nocookie.com/embed/mtIdBf_e1NM?si=PKCMAleGLSnw2lQ6" target="ifr-v1">Video 2</a>
                         </div>
-                        <iframe class="video-iframe" name="ifr-v1" width="560" height="315" src="https://www.youtube-nocookie.com/embed/mtIdBf_e1NM?si=PKCMAleGLSnw2lQ6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe class="video-iframe" name="ifr-v1" width="400" height="300" src="https://www.youtube-nocookie.com/embed/mtIdBf_e1NM?si=PKCMAleGLSnw2lQ6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    <h2>Promotii</h2>
-                        <h3>Oferte</h3>
-                        <p>Mai jos puteti vedea articolele ce prezinta oferte de la <s>20% reducere</s><ins>30% reducere</ins>.</p>
-                        <h3>Super oferte</h3>
-                        <p>Mai jos puteti vedea <abbr title="articole">art.</abbr> ce prezinta super oferte.</p>
                 </section>
                 <section id="calendar">
                     Calendar Evenimente<br>
@@ -121,11 +155,32 @@
                 </section>
                 <section id="dateu">
                     Date despre utilizatori<br>
-                    Lorem ipsum
+                    <p>Ip: <%- locals.ip %></p>
                 </section>
                 <section id="dates">
                     Date despre site si server<br>
                     Lorem ipsum
+                </section>
+                <section id="galerie-statica">
+                    <h2>Galerie</h2>
+                    <div id="grid-galerie">
+                        <% 
+                            var vLuni=["ianuarie", "februarie", "martie", "aprilie", "iunie", "iulie"];
+                            var d=new Date();
+                            var lunaCurenta=vLuni[d.getMonth()];
+                            for (let imag of locals.imagini) { 
+                                if (imag?.luni?.includes(lunaCurenta)) {
+                                %>
+                                    <figure>
+                                        <picture>
+                                            <source srcset="<%= imag.fisier_mediu %>" media="(max-width:1200px)"/>
+                                            <img src="<%= imag.fisier %>" alt="prajituri">
+                                        </picture>
+                                    <figcaption><%= imag.descriere %></figcaption>
+                                    </figure>
+                            <% } %>
+                        <% } %>
+                    </div>
                 </section>
             </div>
         </main>

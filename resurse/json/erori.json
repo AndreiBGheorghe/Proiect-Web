@@ -1,37 +1,37 @@
 {
     "cale_baza": "/resurse/imagini/erori",
     "eroare_default":{
-        "titlu":"Eroare !!!",
-        "text": "A survenit eroare.",
+        "titlu":"Eroare!",
+        "text": "A aparut o eroare.",
         "imagine":"interzis.png"
     },
     "info_erori": [
         {
             "identificator":404,
             "status":true,
-            "titlu":"404 - N-am, bre!",
-            "text": "Nu-i pe serverul ăsta, sorry, caută în altă parte!",
+            "titlu":"404 - Not found",
+            "text": "Ceea ce ati cautat nu se afla pe acest server!",
             "imagine":"lupa.png"
         },
         {
             "identificator":403,
             "status":true,
-            "titlu":"403 - Da, tu ce cauți aici?!!",
-            "text": "Ai greșit ruta. Stânga-împrejur și pa!",
+            "titlu":"403 - Wrong Route",
+            "text": "Ati gresit ruta!",
             "imagine":"interzis.png"
         },
         {
             "identificator":400,
             "status":true,
-            "titlu":"400 - bad request",
-            "text": "Cerere gresita",
+            "titlu":"400 - Bad Request",
+            "text": "Cererea este gresita!",
             "imagine":"interzis.png"
         },
         {
             "identificator":1,
             "status":false,
-            "titlu":"Site în lucru",
-            "text": "Muncim, muncim!",
+            "titlu":"Mentenanta",
+            "text": "Site-ul este temporar in lucru!",
             "imagine":"interzis.png"
         },
         {
@@ -44,8 +44,8 @@
         {
             "identificator":3,
             "status":false,
-            "titlu":"Date gresit",
-            "text": "Verificati datele",
+            "titlu":"Date gresite",
+            "text": "Verificati datele!",
             "imagine":"interzis.png"
         }
     ]

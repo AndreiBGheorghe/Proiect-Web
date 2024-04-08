@@ -6,7 +6,27 @@ body{
   --culoare-alb: #FFFFFF;
   --culoare-mov: #8A4EE5;
 }
-/* Culorile din schema cromatica*/
+
+a:visited {
+  color: var(--culoare-mov);
+}
+
+a:active {
+  border: 1px solid var(--culoare-negru);
+}
+
+a:where(
+  [href^="http"]
+)::before {
+  content: '⮳';
+  font-size: 1.5em;
+}
+
+a:where([href^="http"]):hover:before {
+  content: '⮳';
+  font-size: 1.5em;
+  color: var(--culoare-rosu);
+}
 
 #link-top{
   position: fixed;
@@ -85,15 +105,15 @@ body{
     max-width: 250px;
   }
   .container-iframe{
-    font-size: 0.6em;
+    font-size: 0.5em;
   }
 }
 
 .container-iframe{
   display: flex;
   flex-direction: row-reverse;
-  width: 40%;
-  height: 40.4%;
+  width: 400px;
+  height: 300px;
   margin-left: auto;
   margin-right: auto;
   border: 10px solid var(--culoare-rosu);
@@ -105,6 +125,7 @@ body{
 }
 
 .taburi-iframe>a{
+  font-size: 0.9em;
   display: flex;
   position: absolute;
   justify-content: flex-end;

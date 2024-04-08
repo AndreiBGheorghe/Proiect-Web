@@ -1,7 +1,7 @@
 {
-  "name": "proiect-web",
+  "name": "bballstore",
   "version": "1.0.0",
-  "description": "",
+  "description": "BBallStore este un magazin online de articole sportive de baschet.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,43 @@
   "author": "Andrei Gheorghe",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "ejs": "^3.1.9",
-    "express": "^4.19.1"
-  }
+    "express": "^4.19.1",
+    "sharp": "^0.33.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreiBGheorghe/Proiect-Web.git"
+  },
+  "keywords": [
+    "BBallStore",
+    "articole",
+    "sportive",
+    "baschet",
+    "incaltaminte",
+    "pantaloni",
+    "tricou",
+    "jersey",
+    "accesorii",
+    "minge",
+    "genunchiere",
+    "cotiere",
+    "sosete",
+    "Nike",
+    "Adidas",
+    "Under",
+    "Armour",
+    "Anta",
+    "Reebok",
+    "Puma",
+    "transport",
+    "la",
+    "domiciliu",
+    "Bucuresti"
+  ],
+  "bugs": {
+    "url": "https://github.com/AndreiBGheorghe/Proiect-Web/issues"
+  },
+  "homepage": "https://github.com/AndreiBGheorghe/Proiect-Web#readme"
 }

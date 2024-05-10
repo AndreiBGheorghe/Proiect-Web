@@ -3,7 +3,19 @@ const fs= require('fs');
 const path=require('path');
 const sharp=require('sharp');
 const sass=require('sass');
-// const ejs=require('ejs');
+const ejs=require('ejs');
+const Client=require('pg').Client;
+
+var client= new Client({database:"proiectweb",
+        user:"spiry",
+        password:"171515",
+        host:"localhost",
+        port:5432});
+client.connect();
+
+client.query("select * from prajituri", function(err,rez){
+    console.log(rez);
+})
 
 vect_foldere=["temp","temp1"]
 for (let folder of vect_foldere){
@@ -38,8 +50,46 @@ app.set("view engine","ejs");
 app.use("/resurse", express.static(__dirname+"/resurse"));
 app.use("/node_modules", express.static(__dirname+"/node_modules"));
 
+app.use(function(req,res,next){
+    client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err,rezOptiuni){
+        res.locals.optiuniMeniu=rezOptiuni.rows
+        next();
+    })
+})
+
 app.get(["/","/index","/home"], function(req,res){
     res.render("pagini/index", {ip:req.ip, imagini:obGlobal.obImagini.imagini});
+})
+
+app.get("/produse", function(req, res){
+    console.log(req.query)
+    var conditieQuery="";
+    if (req.query.tip){
+        conditieQuery=` where tip_produs='${req.query.tip}'`
+    }
+    client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rezOptiuni){
+        client.query(`select * from prajituri ${conditieQuery}`, function(err, rez){
+            if (err){
+                console.log(err);
+                afisareEroare(res, 2);
+            }
+            else{
+                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
+            }
+        })
+    });
+})
+
+app.get("/produs/:id", function(req, res){
+    client.query(`select * from prajituri where id=${req.params.id}`, function(err, rez){
+        if (err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else{
+            res.render("pagini/produs", {prod: rez.rows[0]})
+        }
+    })
 })
 
 app.get("/promotii", function(req,res){

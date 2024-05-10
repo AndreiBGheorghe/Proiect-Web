@@ -28,6 +28,19 @@ a:where([href^="http"]):hover:before {
   color: var(--culoare-rosu);
 }
 
+.pataculoare{
+  background-image: radial-gradient(closest-side, var(--culoare-rosu) 0%, var(--culoare-rosu) 40%, transparent 80%, transparent 100%);
+  background-position: center;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 0% 0%;
+  transition: all 0.8s ease-in;
+}
+
+.pataculoare:hover {
+  background-size: 100% 100%;
+}
+
 #link-top{
   position: fixed;
   bottom: 0.7em;

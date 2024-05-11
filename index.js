@@ -70,14 +70,14 @@ app.get("/produse", function(req, res){
     if (req.query.tip){
         conditieQuery=` where tip_produs='${req.query.tip}'`
     }
-    client.query("select * from unnest(enum_range(null::tip_produs))", function(err, rezOptiuni){
+    client.query("select * from unnest(enum_range(null::tip_articol))", function(err, rezOptiuni){
         client.query(`select * from articole ${conditieQuery}`, function(err, rez){
             if (err){
                 console.log(err);
                 afisareEroare(res, 2);
             }
             else{
-                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni})
+                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
             }
         })
     });
@@ -101,25 +101,6 @@ app.get("/promotii", function(req,res){
 
 app.get("/", function(req,res){
     res.render("pagini/index");
-})
-
-app.get("/cerere", function(req,res){
-    res.send("Hello");
-})
-
-app.get("/suma/:a/:b", function(req,res){
-    var suma=parseInt(req.params.a)+parseInt(req.params.b)
-    res.send(""+suma);
-})
-
-app.get("/data", function(req,res,next){
-    res.write("Data: ");
-    next();
-})
-
-app.get("/data", function(req,res){
-    res.write(""+new Date());
-    res.end;
 })
 
 app.get("/favicon.ico", function(req,res){

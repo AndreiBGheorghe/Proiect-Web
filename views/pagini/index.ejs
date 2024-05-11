@@ -11,8 +11,9 @@
         <main>
             <div id="grid-pagina">
                 <section id="prezentare">
-                    <h2>Bine ati venit!</h2>
+                    <h2>Bine ati venit!</h2><h2 id="reflexie">Bine ati venit!</h2>
                     <p>Va multumim ca ati ales site-ul BBallStore pentru a va achizitiona articolele de baschet!</p>
+                    <hr id="hrgradient">
                     <q>I've failed over and over and over again in my life. And that is why I succeed.</q> - Michael Jordan<br/>
                     <a target="_blank" href="https://www.google.com" class="slider-button pataculoare">Google</a><br/>
                     <details>
@@ -27,6 +28,7 @@
                         </picture>
                         <figcaption>Minge de baschet</figcaption>
                     </figure>
+                    <div id="imagineduotone"></div>
                     <div id="container-video">
                         <img class="poster" src="resurse/imagini/poster.png" alt="poster">
                         <div id="centrare-video">
@@ -51,7 +53,7 @@
                                 <tr>
                                     <th>Perioadă</th>
                                     <th>Zi</th>
-                                    <th>Interval dimineata</th>
+                                    <th>Interval de lucru</th>
                                     <th>Interval pauza</th>
                                 </tr>
                             </thead>
@@ -136,27 +138,7 @@
                     Date despre site si server<br>
                     Lorem ipsum
                 </section>
-                <section id="galerie-statica">
-                    <h2>Galerie</h2>
-                    <div id="grid-galerie">
-                        <% 
-                            var vLuni=["ianuarie", "februarie", "martie", "aprilie", "iunie", "iulie"];
-                            var d=new Date();
-                            var lunaCurenta=vLuni[d.getMonth()];
-                            for (let imag of locals.imagini) { 
-                                if (imag?.luni?.includes(lunaCurenta)) {
-                                %>
-                                    <figure>
-                                        <picture>
-                                            <source srcset="<%= imag.fisier_mediu %>" media="(max-width:1200px)"/>
-                                            <img src="<%= imag.fisier %>" alt="prajituri">
-                                        </picture>
-                                    <figcaption><%= imag.descriere %></figcaption>
-                                    </figure>
-                            <% } %>
-                        <% } %>
-                    </div>
-                </section>
+                <%- include("../fragmente/galerie.ejs") %>
             </div>
         </main>
         <%- include("../fragmente/footer.ejs") %>

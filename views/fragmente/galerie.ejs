@@ -1,0 +1,20 @@
+<section id="galerie-statica">
+    <h2>Galerie</h2>
+    <div id="grid-galerie">
+    <%  var vtimp=["noapte","noapte","noapte","noapte","noapte","dimineata","dimineata","dimineata","dimineata","dimineata","dimineata","dimineata","zi","zi","zi","zi","zi","zi","zi","zi","noapte","noapte","noapte","noapte",];
+    var d=new Date();
+    var timpCurent=vtimp[d.getHours()];
+    for (let imag of locals.imagini) {
+        if (imag?.timp?.includes(timpCurent)) { %>
+            <figure>
+                <picture>
+                    <source srcset="<%= imag.cale_relativa_mediu %>" media="(max-width:1200px)"/>
+                    <source srcset="<%= imag.cale_relativa_mic %>" media="(max-width:800px)"/>
+                    <img src="<%= imag.cale_relativa %>" alt="<%= imag.nume %>">
+                </picture>
+            <figcaption><%= imag.descriere %></figcaption>
+            </figure>
+        <% } %>
+    <% } %>
+    </div>
+</section>

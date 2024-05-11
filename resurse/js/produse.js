@@ -2,7 +2,6 @@ window.addEventListener("load", function(){
     document.getElementById("inp-pret").onchange=function(){
         document.getElementById("infoRange").innerHTML=`(${this.value})`
     }
-    //document.getElementById("filtrare").addEventListener("click", function(){})
     document.getElementById("filtrare").onclick=function(){
         var inpNume=document.getElementById("inp-nume").value.trim().toLowerCase();
         var vRadio=document.getElementsByName("gr_rad");

@@ -1,27 +1,123 @@
 body{
-  --culoare-portocaliu:#E6762A;
-  --culoare-rosu:#E52525;
-  --culoare-galben:#E6CD2B;
-  --culoare-negru:#000000;
-  --culoare-alb: #FFFFFF;
-  --culoare-mov: #8A4EE5;
+  --culoare-portocaliu:rgb(230, 118, 42);
+  --culoare-rosu:rgb(224, 55, 55);
+  --culoare-galben:rgb(230, 206, 45);
+  --culoare-negru:rgb(0, 0, 0);
+  --culoare-alb: rgb(255, 255, 255);
+  --culoare-mov: rgb(131, 65, 230);
+}
+
+#background-video{
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+}
+
+#pagina-promo{
+  color: var(--culoare-alb);
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+#hrgradient{
+  height: 15px;
+  background-image: linear-gradient(45deg, var(--culoare-rosu) 20%, transparent 20%, transparent 22%, var(--culoare-rosu) 22%, var(--culoare-rosu) 78%, transparent 78%, transparent 80%, var(--culoare-rosu) 80%);
+  border: none;
+}
+
+#imagineduotone{
+	position: relative;
+	background-image: url("../imagini/pozaduotone.png");
+	background-size: cover;
+	width: 500px; 
+	height: 300px;
+	filter: grayscale(0);
+	transition: all 2s linear;
+  overflow: hidden;
+}
+#imagineduotone:after, #imagineduotone:before{
+	content: " ";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	transition: all 1s linear;
+}
+#imagineduotone:after{
+	background-color: var(--culoare-rosu);
+	mix-blend-mode: lighten;
+  left: -100%;
+}
+#imagineduotone:before{
+	background-color: var(--culoare-mov);
+	mix-blend-mode: darken;
+  right: -100%
+}
+#imagineduotone:hover:after{
+  left: 0;
+}
+#imagineduotone:hover:before{
+  right: 0;
+}
+
+#reflexie {
+  position: relative;
+	left: 0;
+	top: 0;
+	transform-origin: 0 0;
+	transform: rotateX(180deg) skew(-50deg) scaleY(0.6) translate(21px,-5px); 
+	opacity: 0.55;
+  background: repeating-linear-gradient(black, black 10%, transparent 30%);
+  background-size: 100% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: animatievaluri 0.5s infinite linear;
+  animation-play-state: paused;
+}
+@keyframes animatievaluri {
+  0% {
+    background: repeating-linear-gradient(black, black 40%, transparent 60%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  33%{
+    background: repeating-linear-gradient(black, black 30%, transparent 50%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  67%{
+    background: repeating-linear-gradient(black, black 20%, transparent 40%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  100% {
+    background: repeating-linear-gradient(black, black 10%, transparent 30%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+#reflexie:hover{
+  animation-play-state: running;
 }
 
 a:visited {
   color: var(--culoare-mov);
 }
-
 a:active {
   border: 1px solid var(--culoare-negru);
 }
-
 a:where(
   [href^="http"]
 )::before {
   content: '⮳';
   font-size: 1.5em;
 }
-
 a:where([href^="http"]):hover:before {
   content: '⮳';
   font-size: 1.5em;
@@ -34,9 +130,8 @@ a:where([href^="http"]):hover:before {
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: 0% 0%;
-  transition: all 0.8s ease-in;
+  transition: all 0.7s ease-in;
 }
-
 .pataculoare:hover {
   background-size: 100% 100%;
 }
@@ -54,15 +149,13 @@ a:where([href^="http"]):hover:before {
   rotate: 45deg;
   transition: all 0.5s linear;
 }
-
 #link-top:hover{
   opacity:1;
   border: 3px solid var(--culoare-rosu);
   background: var(--culoare-galben);
 }
-
 #sageata{
-  height: 2rem;
+  height: 3.4rem;
   display: inline-block;
   border-bottom: 1.5rem solid var(--culoare-negru);
   border-left: 1rem solid transparent;
@@ -72,7 +165,6 @@ a:where([href^="http"]):hover:before {
   rotate: -45deg;
   transition: all 0.5s linear;
 }
-
 #link-top:hover>#sageata{
   border-bottom: 1.5rem solid var(--culoare-alb);
 }
@@ -82,22 +174,18 @@ a:where([href^="http"]):hover:before {
   border-collapse: collapse;
   border: 5px solid var(--culoare-negru);
 }
-
 #tab-orar th, #tab-orar td{
   border: 1px solid var(--culoare-negru);
 }
-
 #tab-orar tr:hover{
   color: var(--culoare-rosu);
   background-color: var(--culoare-portocaliu);
   border: 5px solid var(--culoare-negru);
   transition: all 0.75s linear;
 }
-
 #tab-orar th:nth-child(2n+1){
   background-color: var(--culoare-rosu);
 }
-
 #tab-orar th:nth-child(2n){
   background-color: var(--culoare-portocaliu);
 }
@@ -132,11 +220,9 @@ a:where([href^="http"]):hover:before {
   border: 10px solid var(--culoare-rosu);
   border-radius: 2%;
 }
-
 .tab2{
   margin-top: 3.3em;
 }
-
 .taburi-iframe>a{
   font-size: 0.9em;
   display: flex;
@@ -152,7 +238,6 @@ a:where([href^="http"]):hover:before {
   padding: 15px;
   width: 5%;
 }
-
 .taburi-iframe>a:hover{
   padding-left: 40px;
   background-color: var(--culoare-galben);

@@ -6,14 +6,14 @@ const sass=require('sass');
 const ejs=require('ejs');
 const Client=require('pg').Client;
 
-var client= new Client({database:"proiectweb",
+var client= new Client({database:"articole",
         user:"spiry",
         password:"171515",
         host:"localhost",
         port:5432});
 client.connect();
 
-client.query("select * from prajituri", function(err,rez){
+client.query("select * from articole", function(err,rez){
     console.log(rez);
 })
 
@@ -40,7 +40,7 @@ for (let folder of vect_foldere){
     }
 }
 
-app= express();
+app=express();
 console.log("Folder proiect", __dirname);
 console.log("Cale fisier", __filename);
 console.log("Director de lucru", process.cwd());
@@ -51,7 +51,7 @@ app.use("/resurse", express.static(__dirname+"/resurse"));
 app.use("/node_modules", express.static(__dirname+"/node_modules"));
 
 app.use(function(req,res,next){
-    client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err,rezOptiuni){
+    client.query("select * from unnest(enum_range(null::tip_articol))",function(err,rezOptiuni){
         res.locals.optiuniMeniu=rezOptiuni.rows
         next();
     })
@@ -61,27 +61,30 @@ app.get(["/","/index","/home"], function(req,res){
     res.render("pagini/index", {ip:req.ip, imagini:obGlobal.obImagini.imagini});
 })
 
+app.get("/galerie", function(req,res){
+    res.render("pagini/galerie", {ip:req.ip, imagini:obGlobal.obImagini.imagini});
+})
+
 app.get("/produse", function(req, res){
-    console.log(req.query)
     var conditieQuery="";
     if (req.query.tip){
         conditieQuery=` where tip_produs='${req.query.tip}'`
     }
-    client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rezOptiuni){
-        client.query(`select * from prajituri ${conditieQuery}`, function(err, rez){
+    client.query("select * from unnest(enum_range(null::tip_produs))", function(err, rezOptiuni){
+        client.query(`select * from articole ${conditieQuery}`, function(err, rez){
             if (err){
                 console.log(err);
                 afisareEroare(res, 2);
             }
             else{
-                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
+                res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni})
             }
         })
     });
 })
 
 app.get("/produs/:id", function(req, res){
-    client.query(`select * from prajituri where id=${req.params.id}`, function(err, rez){
+    client.query(`select * from articole where id=${req.params.id}`, function(err, rez){
         if (err){
             console.log(err);
             afisareEroare(res, 2);
@@ -97,7 +100,6 @@ app.get("/promotii", function(req,res){
 })
 
 app.get("/", function(req,res){
-    //res.sendFile(__dirname+"/index.html")
     res.render("pagini/index");
 })
 
@@ -136,8 +138,6 @@ app.get("/*", function(req,res){
     console.log(req.url);
     try{
         res.render("pagini"+req.url, function(err,rezHtml){
-            //console.log("Pagina:", rezHtml);
-            //console.log("Eroare:", err);
             if (err){
                 if (err.message.startsWith("Failed to lookup view")){
                     afisareEroare(res, 404);
@@ -198,29 +198,31 @@ function afisareEroare(res, _identificator, _titlu, _text, _imagine){
         })
     }
 }
-
 initErori()
 
 function initImagini(){
-    var continut= fs.readFileSync(path.join(__dirname,"resurse/json/galerie.json")).toString("utf-8");
+    var continut=fs.readFileSync(path.join(__dirname,"resurse/json/galerie.json")).toString("utf-8");
 
     obGlobal.obImagini=JSON.parse(continut);
     let vImagini=obGlobal.obImagini.imagini;
 
     let caleAbs=path.join(__dirname,obGlobal.obImagini.cale_galerie);
     let caleAbsMediu=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mediu");
+    let caleAbsMic=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mic");
     if (!fs.existsSync(caleAbsMediu))
         fs.mkdirSync(caleAbsMediu);
-
-    //for (let i=0; i< vErori.length; i++ )
+    if (!fs.existsSync(caleAbsMic))
+        fs.mkdirSync(caleAbsMic);
     for (let imag of vImagini){
-        [numeFis, ext]=imag.fisier.split(".");
-        let caleFisAbs=path.join(caleAbs,imag.fisier);
-        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
-        sharp(caleFisAbs).resize(300).toFile(caleFisMediuAbs);
-        imag.fisier_mediu=path.join("/", obGlobal.obImagini.cale_galerie, "mediu",numeFis+".webp" )
-        imag.fisier=path.join("/", obGlobal.obImagini.cale_galerie, imag.fisier )
-        
+        [numeCale, ext]=imag.cale_relativa.split(".");
+        let caleRel=path.join(caleAbs,imag.cale_relativa);
+        let caleRelMediu=path.join(caleAbsMediu, numeCale+".webp");
+        let caleRelMic=path.join(caleAbsMic, numeCale+".webp");
+        sharp(caleRel).resize(300).toFile(caleRelMediu);
+        sharp(caleRel).resize(200).toFile(caleRelMic);
+        imag.cale_relativa_mediu=path.join("/", obGlobal.obImagini.cale_galerie, "mediu",numeCale+".webp")
+        imag.cale_relativa_mic=path.join("/", obGlobal.obImagini.cale_galerie, "mic",numeCale+".webp")
+        imag.cale_relativa=path.join("/", obGlobal.obImagini.cale_galerie, imag.cale_relativa)
     }
     console.log(obGlobal.obImagini)
 }
@@ -252,10 +254,8 @@ function compileazaScss(caleScss, caleCss){
     }
     rez=sass.compile(caleScss, {"sourceMap":true});
     fs.writeFileSync(caleCss,rez.css)
-    //console.log("Compilare SCSS",rez);
 }
 
-//compileazaScss("a.scss");
 vFisiere=fs.readdirSync(obGlobal.folderScss);
 for( let numeFis of vFisiere ){
     if (path.extname(numeFis)==".scss"){

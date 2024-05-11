@@ -1,0 +1,44 @@
+{
+	"obiecte": [
+		{
+			"nume":"Minge de Baschet",
+            "nume-autor":"Target",
+			"link":"https://www.target.com/p/wilson-nba-29-5-34-basketball/-/A-82153660"
+		},
+		{
+			"nume":"Jersey",
+			"nume-autor":"Nike",
+			"link":"https://www.nike.com/ro/t/milwaukee-bucks-statement-edition-jordan-dri-fit-nba-swingman-jersey-xt92ZK"
+		},
+		{
+			"nume":"Jersey",
+			"nume-autor":"Nike",
+			"link":"https://www.nike.com/ro/t/los-angeles-lakers-icon-edition-2022-23-dri-fit-adv-nba-authentic-jersey-bxNrjJ"
+		},
+		{
+			"nume":"Tricou",
+			"nume-autor":"We Bleed Ohio",
+			"link":"https://webleedohio.com/products/cleveland-nothing-but-net-basketball-t-shirt"
+		},
+		{
+			"nume":"Adidasi",
+			"nume-autor":"BasketZone",
+			"link":"https://ro.basketzone.net/product.8986.nike.lebron.16.buzz.lightyear.html"
+		},
+		{
+			"nume":"Adidasi",
+			"nume-autor":"Sports Illustrated",
+			"link":"https://www.si.com/fannation/sneakers/news/the-top-23-new-basketball-shoes-of-2023"
+		},
+		{
+			"nume":"Adidasi",
+			"nume-autor":"eBay",
+			"link":"https://www.ebay.ca/itm/125030351506"
+		},
+		{
+			"nume":"Pantaloni",
+			"nume-autor":"Nike",
+			"link":"https://www.nike.com/t/dri-fit-dna-mens-8-basketball-shorts-5f2V5m"
+        }
+	]
+}

@@ -2,37 +2,52 @@
 	"cale_galerie":"resurse/imagini/galerie",
 	"imagini": [
 		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie","aprilie"]
+			"cale_relativa":"ball1.png",
+			"nume":"Minge de Baschet",
+			"descriere":"Minge Wilson NBA",
+			"timp":["dimineata","zi"]
 		},
 		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
-			
+			"cale_relativa":"jersey1.png",
+			"nume":"Jersey",
+			"descriere":"Jersey Bucks",
+			"timp":["zi","noapte"]
 		},
 		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+			"cale_relativa":"jersey2.png",
+			"nume":"Jersey",
+			"descriere":"Jersey Lakers",
+			"timp":["zi","noapte"]
 		},
 		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-			"luni":["noiembrie","aprilie"]
+			"cale_relativa":"shirt1.png",
+			"nume":"Tricou",
+			"descriere":"Tricou Cleveland",
+			"timp":["dimineata","noapte"]
 		},
 		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată"
+			"cale_relativa":"shoes1.png",
+			"nume":"Adidasi",
+			"descriere":"Adidasi LeBron 16",
+			"timp":["dimineata","zi","noapte"]
 		},
 		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
+			"cale_relativa":"shoes2.png",
+			"nume":"Adidasi",
+			"descriere":"Adidasi Dame 6",
+			"timp":["dimineata","zi","noapte"]
 		},
 		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
+			"cale_relativa":"shoes3.png",
+			"nume":"Adidasi",
+			"descriere":"Adidasi Jordan 1 High",
+			"timp":["dimineata","zi","noapte"]
+		},
+		{
+			"cale_relativa":"shorts1.png",
+			"nume":"Pantaloni",
+			"descriere":"Pantaloni Nike",
+			"timp":["dimineata"]
 		}
 	]
 }

@@ -12,46 +12,41 @@ html{
                         "diverse diverse diverse diverse"
                         "diverse diverse diverse diverse"
                         "calendar tabel tabel anunturi"
-                        "lista dateu dates dates";
+                        "lista dateu dates dates"
+                        "galstat galstat galstat galstat";
 }
-
 #grid-pagina>*{
     border: 3px solid var(--culoare-negru);
     border-radius: 10px;
     background: var(--culoare-galben);
     padding: 10px;
 }
-
 #prezentare{
     grid-area: prezentare;
 }
-
 #diverse{
     grid-area: diverse;
 }
-
 #calendar{
     grid-area: calendar;
 }
-
 #tabel{
     grid-area: tabel;
 }
-
 #anunturi{
     grid-area: anunturi;
 }
-
 #lista{
     grid-area: lista;
 }
-
 #dateu{
     grid-area: dateu;
 }
-
 #dates{
     grid-area: dates;
+}
+#galerie-statica{
+    grid-area: galstat;
 }
 
 @media screen and (max-width:1200px){
@@ -68,10 +63,10 @@ html{
                             "diverse diverse diverse"
                             "diverse diverse diverse"
                             "calendar tabel anunturi"
-                            "lista dateu dates";
+                            "lista dateu dates"
+                            "galstat galstat galstat";
     }
 }
-
 @media screen and (max-width:800px){
     html{
         font-size: 0.9em;
@@ -88,7 +83,8 @@ html{
                             "anunturi"
                             "lista"
                             "dateu"
-                            "dates";
+                            "dates"
+                            "galstat"
     }
 }
 

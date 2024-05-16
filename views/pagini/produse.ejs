@@ -13,60 +13,114 @@
     <%- include("../fragmente/header") %>
 
     <main>
-        <label>Nume:<input type="text" id="inp-nume"></label>
-        <div>Dimensiune:
-            <p><label>Mic (dimensiune &lt; 10)
-                <input id="i_rad1" name="gr_rad" value="0:10" type="radio"/>
-            </label></p>
-            <p><label>Mediu (10 &le; dimensiune &lt; 20)
-                <input id="i_rad2" name="gr_rad" value="10:20" type="radio"/>
-            </label>
-            <p><label>Mare (20 &le; dimensiune)
-                <input id="i_rad3" name="gr_rad" value="20:100" type="radio"/>
-            </label>
+        <label>Nume: <input type="text" id="inp-nume"></label>
+        <p><label>Pret:
             <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
-            </label>
-        </div>
-        <label>Pret minim:<input type="range" id="inp-pret" value="0" min="0"  max="2000"> <span id="infoRange">(0)</span></label>
-        <label>Select simplu:
+                <input id="i_rad1" checked name="gr_rad" value="toate" type="radio"/>
+            </label></p>
+            <p><label>Mic (&lt; 400)
+                <input id="i_rad2" name="gr_rad" value="0:400" type="radio"/>
+            </label></p>
+            <p><label>Mediu (&ge; 400 & &lt; 800)
+                <input id="i_rad3" name="gr_rad" value="400:800" type="radio"/>
+            </label></p>
+            <p><label>Mare (&ge; 800)
+                <input id="i_rad4" name="gr_rad" value="800:10000" type="radio"/>
+            </label></p>
+        </label>
+        <label>Dimensiune minima: 0 <input type="range" id="inp-dimensiune" value="0" min="0"  max="100"> 100  <span id="infoRange"> (0)</span></label></br>
+        <label>Brand:
+            <input type="text" list="brand" value="toate" id="inp-brand"/>
+            <datalist id="brand">
+                <option value="toate">Toate</option>
+                <% for (let m of locals.marca) { %>
+                    <option value="<%- m.unnest %>"><%- m.unnest %> </option>
+                <% } %>
+            </datalist>
+        </label></br>
+        <label>Tip produs:
             <select id="inp-tip_produs">
-                <option id="sel-toate" selected value="toate">toate</option>
+                <option selected value="toate">Toate</option>
                 <% for (let opt of locals.optiuni) { %>
                     <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
                 <% } %>
             </select>
-        </label>
-        <p>
-        <button id="filtrare">Filtreaza</button> 
-        <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
-        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
+        </label></br>
+        <label>Culoare:
+            <select id= "inp-culoare_principala" size=4 multiple>
+                <option selected value="toate">Toate</option>
+                <% for (let c of locals.culori) { %>
+                    <option value="<%- c.unnest %>"><%- c.unnest %> </option>
+                <% } %>
+            </select>
+        </label></br>
+        <label>De strada:
+            <label>Toate<input id="i_radio1" checked name="gr_radio" value="toate" type="radio"/></label>
+            <label>Da<input id="i_radio2" name="gr_radio" value="true" type="radio"/></label>
+            <label>Nu<input id="i_radio3" name="gr_radio" value="false" type="radio"/></label>
+        </label></br>
+        <button class="btn-custom1" id="filtrare"><i class="fa-solid fa-filter"></i> <span id="ascunde">Filtreaza</span></button> 
+        <button class="btn-custom1" id="resetare"><i class="fa-solid fa-gear"></i> <span id="ascunde">Reseteaza</span></button><br/>
+        <button class="btn-custom1" id="sortCrescNume"><i class="fa-solid fa-forward"></i> <span id="ascunde">Sorteaza crescator dupa pret si brand</span></button>
+        <button class="btn-custom1" id="sortDescrescNume"><i class="fa-solid fa-backward"></i> <span id="ascunde">Sorteaza descrescator dupa pret si brand</span></button>
         </p>
         <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
         <section id="produse">
             <h2>Produse</h2>
             <div class="grid-produse">
                 <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
-                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
-                        <div class="info-prod">
-                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="dimensiune">Dimensiune: <span class="val-dimensiune"><%- prod.dimensiune%></span></p>
+                    <article class="produs">
+                        <h3 class="nume">Nume: <a href="/produs/elem_<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div class="info-produs">
+                            <table id="tabel-produse">
+                                <tbody>
+                                    <tr>
+                                        <td class="pret">Pret: </td>
+                                        <td class="val-pret"><%- prod.pret%></td>
+                                        <td rowspan="7"><a href="/produs/elem_<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:100%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="dimensiune">Dimensiune: </td>
+                                        <td class="val-dimensiune"><%- prod.dimensiune%></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="brand">Brand: </td>
+                                        <td class="val-brand"><%- prod.brand%></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="materiale">Materiale: </td>
+                                        <td class="val-materiale"><%- prod.materiale%></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data_adaugare">Data adaugare: </td>
+                                        <td class="val-data_adaugare"><time><%- prod.data_adaugare%></time></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="de_strada">De strada: </td>
+                                        <td class="val-de_strada"><%- prod.de_strada%></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="culoare_principala">Culoare: </td>
+                                        <td class="val-culoare_principala"><%- prod.culoare_principala%></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <tfoot>
+                                <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>
+                                <p class="tip_produs">Tip Produs: <span class="val-tip_produs"><%- prod.tip_produs%></span></p>
+                                <label class="selecteaza-cos">
+                                    Selectează:<br/>
+                                    <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                                </label>
+                            </tfoot>
                         </div>
-                        <p class="tip_produs">Tip Produs: <span class="val-tip_produs"><%- prod.tip_produs%></span></p>
-                        <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
-                        <label class="selecteaza-cos">
-                            Selectează: <br/>
-                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
-                        </label>
                     </article>
                 <% }%>
             </div>
         </section>
     </main>
+
     <%- include("../fragmente/footer") %>
     </body>
 </html>

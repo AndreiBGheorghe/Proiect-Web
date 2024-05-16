@@ -1,4 +1,8 @@
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+.btn-custom1 {
+    background-color: purple;
+    border-radius: 10px;
+    border-width: 3px;
+}
 
 $body-bg: rgb(230, 206, 45);
 $body-color: rgb(0, 0, 0);

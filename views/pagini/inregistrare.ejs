@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title>BBallStore</title>
+        <meta name="keywords" content="BBallStore, articole sportive, baschet, incaltaminte, pantaloni, tricou, jersey, accesorii, minge, genunchiere, cotiere, sosete, Nike, Adidas, Under Armour, Anta, Reebok, Puma, transport la domiciliu, Bucuresti">
+        <meta name="description" content="BBallStore ofera articole de baschet de cea mai buna calitate la pret bun. Avem produse Nike, Adidas, Under Armour. Livrare la domiciliu.">
+        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <%- include("../fragmente/head.ejs") %>     
+        <script type="text/javascript" src=/resurse/js/inregistrare.js></script>
+    </head>
+    <body>
+        <%- include("../fragmente/header.ejs") %>
+    <main>
+        <div class="afisaj">
+            <h1>Inregistrare utilizator</h1>
+            <% if(!locals.raspuns) { %>    
+                <%-include("../fragmente/formular.ejs", {action:"/inregistrare"}) %>
+            <% } %>
+        <% if(locals.raspuns) { %>
+        <%- locals.raspuns+"<br/>"%>
+        <% } %>
+        <% if(locals.err) { %>
+        <%- locals.err %>
+        <% } %>
+        </div>
+    </main>
+    <%- include("../fragmente/footer.ejs") %>
+</body>
+</html>

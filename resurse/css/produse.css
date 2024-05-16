@@ -1,5 +1,5 @@
 main{
-    background-image: url("../imagini/backgroundp1.png");
+    background-image: url("../imagini/backgroundp2.png");
     background-size: 100% auto;
     background-attachment: fixed;
     --padd-main:1rem;
@@ -9,32 +9,35 @@ main{
 }
 @keyframes animatiebackground {
     0% {
-        background-image: url("../imagini/backgroundp1.png");
+        background-image: url("../imagini/backgroundp2.png");
     }
     49%{
-        background-image: url("../imagini/backgroundp1.png");
+        background-image: url("../imagini/backgroundp2.png");
     }
     51%{
-        background-image: url("../imagini/backgroundp2.png");
+        background-image: url("../imagini/backgroundp1.png");
     }
     100% {
-        background-image: url("../imagini/backgroundp2.png");
+        background-image: url("../imagini/backgroundp1.png");
     }
-  }
+}
+
 .grid-produse{
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:2rem;
 }
 .grid-produse .produs{
-    background-color: var(--culoare-mov);
+    background-color: transparent;
+    color: var(--culoare-alb);
+    text-shadow: 2px 2px var(--culoare-negru);
     border-radius: 2rem;
     box-shadow: 0px 0px 0.8rem 0.3rem var(--culoare-rosu);
     overflow: hidden;
 }
 
 .grid-produse .produs h3{
-    background-color: var(--culoare-roz-inchis);
+    background-color: var(--culoare-mov);
     text-align: center;
     margin-top: 0;
     padding-top: 0.5rem;
@@ -47,21 +50,6 @@ main{
 .grid-produse .produs h3 a:hover{
     color:white;
 }
-.grid-produse .produs figure{
-    text-align: center;
-}
-.grid-produse .produs figure img{
-    border:1px solid grey
-}
-.grid-produse .produs .info-prod{
-    display:flex;
-    background-color: var(--cl-marcare);
-}
-.grid-produse .produs .info-prod p{
-    width:30%;
-    text-align:center;
-    font-weight:bold;
-}
 
 .grid-produse .produs p.categorie{
 
@@ -69,15 +57,14 @@ main{
     font-weight:bold;
 }
 
-.info-produse{
-    background-color: var(--cl-marcare);
-    padding:0.2rem;
-    box-shadow: 0px 0px 0.5rem 0.15rem grey;
+.grid-produse .produs .info-produse{
+    padding: 50px;
 }
 
 .produs{
     position: relative;
 }
+
 .selecteaza-cos{
     display: inline-block;
     background-color: var(--culoare-mov);
@@ -90,8 +77,8 @@ main{
     border:1px solid transparent;
 }
 
-.selecteaza-cos:hover{
-    background-color: var(--cl-marcare);
-    
-    border:1px solid  var(--culoare-mov);
+@media screen and (max-width:800px){
+    #ascunde{
+        display: none;
+    }
 }

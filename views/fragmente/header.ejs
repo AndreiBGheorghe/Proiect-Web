@@ -1,6 +1,6 @@
 <header>
     <h1>BBallStore <i class="fa-solid fa-basketball fa-bounce"></i></i></h1>
-    <button id="schimba_tema">Schimba tema</button>
+    <label class="switch"><input type="checkbox" id="schimba_tema"><span class="slider round fas fa-sun"></span></label>
     <script src="/resurse/js/tema.js"></script>
 </header>
 <nav>
@@ -25,12 +25,10 @@
         <li>
             <a href="/produse">Produse</a>
             <ul>
-                <li><a href="/produse/Incaltaminte">Incaltaminte</a></li>
-                <li><a href="/produse/Pantaloni">Pantaloni</a></li>
-                <li><a href="/produse/Tricouri">Tricouri</a></li>
-                <li><a href="/produse/Jersey">Jersey</a></li>
-                <li><a href="/produse/Accesorii">Accesorii</a></li>
-                <li><a href="/produse/Minge">Minge</a></li>
+                <li><a href="/produse/Toate">Toate</a></li>
+                <% for (let opt of locals.optiuniMeniu) { %>
+                    <li><a href="/produse/<%- opt.unnest %>"><%- opt.unnest %></a></li>
+                <% } %>
             </ul>
         </li>
     </ul>

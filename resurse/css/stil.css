@@ -2,13 +2,9 @@ header{
     background: var(--culoare-rosu);
     border: 4px solid var(--culoare-negru);
     border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 5px;
 }
 
 body{
-    padding-left:75px;
-    padding-right:75px;
     background: var(--culoare-mov);
     font-family: "Madimi One", sans-serif;
     font-weight: 400;
@@ -19,7 +15,6 @@ footer{
     background: var(--culoare-portocaliu);
     border: 3px solid var(--culoare-negru);
     border-radius: 15px;
-    padding: 15px;
     margin-top: 5px;
 }
 

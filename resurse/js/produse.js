@@ -3,7 +3,7 @@ window.addEventListener("load", function(){
         document.getElementById("infoRange").innerHTML=`(${this.value})`
     }
     function contineCaractereSpc(str) {
-        let caractere="!@#$%^&*()-_=+[{]};:'\",<.>/?\\|";
+        let caractere="!@#$%^&*()-_=+[{]};:'\"<.>/?\\|";
         for (var i = 0; i < str.length; i++) {
             if (caractere.indexOf(str[i]) !== -1) {
                 return true;
@@ -14,9 +14,16 @@ window.addEventListener("load", function(){
     document.getElementById("filtrare").onclick=function(){
         var contor=true;
         var inpNume=document.getElementById("inp-nume").value.trim().toLowerCase();
+        var inpMateriale=document.getElementById("inp-materiale").value.trim().toLowerCase();
         if(contineCaractereSpc(inpNume)){
             if(confirm("Numele introdus nu este valid")){
                 document.getElementById("inp-nume").value="";
+                contor=false;
+            }
+        }
+        if(contineCaractereSpc(inpMateriale)){
+            if(confirm("Materialul introdus nu este valid")){
+                document.getElementById("inp-materiale").value="";
                 contor=false;
             }
         }
@@ -63,7 +70,9 @@ window.addEventListener("load", function(){
                 let cond6=(inpCuloare=="toate" || inpCuloare==valCuloare);
                 let valDeStrada=produs.getElementsByClassName("val-de_strada")[0].innerHTML.trim().toLowerCase();
                 let cond7=(inpDeStrada=="toate" || inpDeStrada==valDeStrada);
-                if (cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7){
+                let valMateriale=produs.getElementsByClassName("val-materiale")[0].innerHTML.trim().toLowerCase();
+                let cond8=valMateriale.startsWith(inpMateriale);
+                if (cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7 && cond8){
                     produs.style.display="block";
                 }
                 else{
@@ -82,6 +91,7 @@ window.addEventListener("load", function(){
             document.getElementById("inp-brand").value="toate";
             document.getElementById("inp-culoare_principala").value="toate";
             document.getElementById("i_radio1").checked=true;
+            document.getElementById("inp-materiale").value="";
             var produse=document.getElementsByClassName("produs");
             for (let prod of produse){
                 prod.style.display="block";
@@ -136,7 +146,7 @@ window.addEventListener("load", function(){
             let p=document.createElement("p");
             p.innerHTML=suma;
             p.id="par_suma";
-            let container=document.getElementById("produse")
+            let container=document.getElementById("afisare_suma")
             container.insertBefore(p,container.children[0])
             setTimeout(function(){
                 let par=document.getElementById("par_suma")

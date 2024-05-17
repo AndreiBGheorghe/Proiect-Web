@@ -1,18 +1,30 @@
+const switchTema=document.getElementById('schimba_tema');
+var icon = document.getElementById('idarkth');
 if(localStorage.getItem("tema")){
     document.body.classList.add("dark")
+    switchTema.checked=true;
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
 }
 else{
     document.body.classList.remove("dark")
+    switchTema.checked=false;
+    icon.classList.add('fa-sun');
+    icon.classList.remove('fa-moon');
 }
 window.addEventListener("DOMContentLoaded",function(){
     document.getElementById("schimba_tema").onclick=function(){
         if(document.body.classList.contains("dark")){
             document.body.classList.remove("dark")
             localStorage.removeItem("tema")
+            icon.classList.add('fa-sun');
+            icon.classList.remove('fa-moon');
         }
         else{
             document.body.classList.add("dark")
             localStorage.setItem("tema","dark")
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
         }
     }
 })

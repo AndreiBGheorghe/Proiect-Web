@@ -1,3 +1,12 @@
+main {
+    background-image: url("../imagini/backgroundp2.png");
+    background-size: 100% auto;
+    background-attachment: fixed;
+    padding-left: 5px;
+    padding-right: 5px;
+    animation: animatiebackground 20s infinite ;
+}
+
 h2{
     padding:0.4rem;
 }

@@ -5,7 +5,7 @@
 
 nav {
   --inaltime: 2.5em;
-  --latime: 8em;
+  --latime: 6em;
   height: var(--inaltime);
   width: 100%;
   background-color: var(--culoare-galben);

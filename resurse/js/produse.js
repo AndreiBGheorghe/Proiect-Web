@@ -157,3 +157,13 @@ window.addEventListener("load", function(){
         }
     }
 });
+
+document.addEventListener("DOMContentLoaded", function(){
+    const cards = document.querySelectorAll(".animated-card");
+    const interval = 200;
+    cards.forEach(function(card, index){
+        setTimeout(function(){
+            card.classList.remove("animated-card");
+        }, interval * index);
+    });
+});

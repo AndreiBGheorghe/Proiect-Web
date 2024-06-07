@@ -1,0 +1,16 @@
+.mesaj-c{
+    min-height:5rem;
+}
+.mesaj-c h3{
+    padding-left:1rem;
+}
+.mesaj-c p{
+    padding-left:1rem;
+}
+.mesaj-c time{
+    font-style: italic;
+}
+
+main{
+    padding: 0.5rem;;
+}

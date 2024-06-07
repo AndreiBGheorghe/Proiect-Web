@@ -12,6 +12,7 @@
             <div id="grid-pagina">
                 <section id="prezentare">
                     <h2>Bine ati venit!</h2><h2 id="reflexie">Bine ati venit!</h2>
+                    <%- include("../fragmente/formular-login.ejs") %>
                     <p>Va multumim ca ati ales site-ul BBallStore pentru a va achizitiona articolele de baschet!</p>
                     <hr id="hrgradient">
                     <q>I've failed over and over and over again in my life. And that is why I succeed.</q> - Michael Jordan<br/>
@@ -119,24 +120,25 @@
                     </div>
                 </section>
                 <section id="calendar">
-                    Calendar Evenimente<br>
-                    Lorem ipsum
+                    <div class="container-calendar">
+                        <%- include("../fragmente/evenimente.ejs") %>
+                    </div>
                 </section>
                 <section id="anunturi">
                     Anunturi<br>
                     Lorem ipsum
                 </section>
                 <section id="lista">
-                    Lista utilizatori<br>
-                    Lorem ipsum
+                    <%- include("../fragmente/useri-online.ejs") %>
                 </section>
                 <section id="dateu">
-                    Date despre utilizatori<br>
+                    Date despre utilizator<br>
                     <p>Ip: <%- locals.ip %></p>
+                    <%- include("../fragmente/locatie.ejs") %>
                 </section>
                 <section id="dates">
                     Date despre site si server<br>
-                    Lorem ipsum
+                    <%- include("../fragmente/ora-server-client.ejs") %>
                 </section>
                 <%- include("../fragmente/galerie.ejs") %>
             </div>

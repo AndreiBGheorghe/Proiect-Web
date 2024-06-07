@@ -1,156 +1,161 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
+        <meta name="keywords" content="BBallStore, articole sportive, baschet, incaltaminte, pantaloni, tricou, jersey, accesorii, minge, genunchiere, cotiere, sosete, Nike, Adidas, Under Armour, Anta, Reebok, Puma, transport la domiciliu, Bucuresti">
+        <meta name="description" content="BBallStore ofera articole de baschet de cea mai buna calitate la pret bun. Avem produse Nike, Adidas, Under Armour. Livrare la domiciliu.">
         <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
         <title>BBallStore - produse</title>
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <script type="text/javascript" src=/resurse/js/produse-cos.js></script>
     </head>
     <body>
-    <%- include("../fragmente/header") %>
-    <main>
-        <div class="grid-bootstrap">
-            <div class="row">
-                <div class="col">
-                    <label>Nume: <input type="text" id="inp-nume"></label>
-                </div>
-                <div class="col">
-                    <label>Brand: 
-                        <input type="text" list="brand" value="toate" id="inp-brand"/>
-                        <datalist id="brand">
-                            <option value="toate">Toate</option>
-                            <% for (let m of locals.marca) { %>
-                                <option value="<%- m.unnest %>"><%- m.unnest %> </option>
-                            <% } %>
-                        </datalist>
-                    </label>
-                </div>
-                <div class="col">
-                    <label>Tip produs: 
-                        <select id="inp-tip_produs">
-                            <option selected value="toate">Toate</option>
-                            <% for (let opt of locals.optiuni) { %>
-                                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                            <% } %>
-                        </select>
-                    </label>
-                </div>
-            </div>
-            <hr id="hrgradient">
-            <div class="row">
-                <div class="col">
-                    <label>Dimensiune minima: 0 -> 100
-                        <span id="infoRange"> (0)</span>
-                        <input class="form-range form-range-custom1" type="range" id="inp-dimensiune" value="0" min="0"  max="100">
-                    </label>
-                </div>
-                <div class="col">
-                    <div class="form-floating">
-                        <input type="textarea" class="form-control" id="inp-materiale">
-                        <label for="inp-materiale">Materiale: </label></br>
+        <%- include("../fragmente/header") %>
+        <main>
+            <div class="grid-bootstrap">
+                <div class="row">
+                    <div class="col">
+                        <label>Nume: <input type="text" id="inp-nume"></label>
+                    </div>
+                    <div class="col">
+                        <label>Brand: 
+                            <input type="text" list="brand" value="toate" id="inp-brand"/>
+                            <datalist id="brand">
+                                <option value="toate">Toate</option>
+                                <% for (let m of locals.marca) { %>
+                                    <option value="<%- m.unnest %>"><%- m.unnest %> </option>
+                                <% } %>
+                            </datalist>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label>Tip produs: 
+                            <select id="inp-tip_produs">
+                                <option selected value="toate">Toate</option>
+                                <% for (let opt of locals.optiuni) { %>
+                                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                                <% } %>
+                            </select>
+                        </label>
                     </div>
                 </div>
-                <div class="col">
-                    <label>Culoare: 
-                        <select id= "inp-culoare_principala" size=4 multiple>
-                            <option selected value="toate">Toate</option>
-                            <% for (let c of locals.culori) { %>
-                                <option value="<%- c.unnest %>"><%- c.unnest %> </option>
-                            <% } %>
-                        </select>
-                    </label>
-                </div>
-            </div>
-            <hr id="hrgradient">
-            <div class="row">
-                <div class="col-8">
-                    <label>Pret:
-                        <input id="i_rad1" class="btn-check" checked name="gr_rad" value="toate" autocomplete=off type="radio"/>
-                        <label class="btn btn-outline-secondary" for="i_rad1">Toate</label>
-                        <input id="i_rad2" class="btn-check" name="gr_rad" value="0:400" autocomplete=off type="radio"/>
-                        <label class="btn btn-outline-secondary" for="i_rad2">Mic (&lt; 400)</label>
-                        <input id="i_rad3" class="btn-check" name="gr_rad" value="400:800" autocomplete=off type="radio"/>
-                        <label class="btn btn-outline-secondary" for="i_rad3">Mediu (&ge; 400 & &lt; 800)</label>
-                        <input id="i_rad4" class="btn-check" name="gr_rad" value="800:1000" autocomplete=off type="radio"/>
-                        <label class="btn btn-outline-secondary" for="i_rad4">Mare (&ge; 800)</label>
-                    </label>
-                </div>
-                <div class="col">
-                    <label>De strada:
-                        <input id="i_radio1" class="btn-check" checked name="gr_radio" value="toate" autocomplete=off type="radio"/>
-                        <label class="btn btn-outline-secondary" for="i_radio1">Toate</label>
-                        <input id="i_radio2" class="btn-check" name="gr_radio" value="true" autocomplete=off type="radio"/>
-                        <label class="btn btn-outline-secondary" for="i_radio2">Da</label>
-                        <input id="i_radio3" class="btn-check" name="gr_radio" value="false" autocomplete=off type="radio"/>
-                        <label class="btn btn-outline-secondary" for="i_radio3">Nu</label>
-                    </label>
-                </div>
-            </div>
-        </div></br>
-        <button class="btn-custom1" id="filtrare"><i class="fa-solid fa-filter"></i> <span id="ascunde">Filtreaza</span></button> 
-        <button class="btn-custom1" id="resetare"><i class="fa-solid fa-gear"></i> <span id="ascunde">Reseteaza</span></button><br/>
-        <button class="btn-custom1" id="sortCrescNume"><i class="fa-solid fa-forward"></i> <span id="ascunde">Sorteaza crescator dupa pret si brand</span></button>
-        <button class="btn-custom1" id="sortDescrescNume"><i class="fa-solid fa-backward"></i> <span id="ascunde">Sorteaza descrescator dupa pret si brand</span></button>
-        <p id="p-suma">Apasati Alt+"c" pentru suma preturilor produselor afișate. </p>
-        <p id="afisare_suma"></p>
-        <section id="produse">
-            <h2>Produse</h2>
-            <div class="grid-produse">
-                <% for( let prod of locals.produse) { %>
-                    <article class="produs">
-                        <h3 class="nume">Nume: <a href="/produs/elem_<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
-                        <div class="info-produs">
-                            <table id="tabel-produse">
-                                <tbody>
-                                    <tr>
-                                        <td class="pret">Pret: </td>
-                                        <td class="val-pret"><%- prod.pret%></td>
-                                        <td rowspan="7"><a href="/produs/elem_<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:100%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="dimensiune">Dimensiune: </td>
-                                        <td class="val-dimensiune"><%- prod.dimensiune%></td>
-                                    </tr>
-                                    <tr>
-
-                                        <td class="brand">Brand: </td>
-                                        <td class="val-brand"><%- prod.brand%></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="materiale">Materiale: </td>
-                                        <td class="val-materiale"><%- prod.materiale%></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="data_adaugare">Data adaugare: </td>
-                                        <td class="val-data_adaugare"><time><%- prod.data_adaugare%></time></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="de_strada">De strada: </td>
-                                        <td class="val-de_strada"><%- prod.de_strada%></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="culoare_principala">Culoare: </td>
-                                        <td class="val-culoare_principala"><%- prod.culoare_principala%></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <tfoot>
-                                <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>
-                                <p class="tip_produs">Tip Produs: <span class="val-tip_produs"><%- prod.tip_produs%></span></p>
-                                <label class="selecteaza-cos">
-                                    Selectează:<br/>
-                                    <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
-                                </label>
-                            </tfoot>
+                <hr id="hrgradient">
+                <div class="row">
+                    <div class="col">
+                        <label>Dimensiune minima: 0 -> 100
+                            <span id="infoRange"> (0)</span>
+                            <input class="form-range form-range-custom1" type="range" id="inp-dimensiune" value="0" min="0"  max="100">
+                        </label>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <input type="textarea" class="form-control" id="inp-materiale">
+                            <label for="inp-materiale">Materiale: </label></br>
                         </div>
-                    </article>
-                <% }%>
-            </div>
-        </section>
-    </main>
+                    </div>
+                    <div class="col">
+                        <label>Culoare: 
+                            <select id= "inp-culoare_principala" size=4 multiple>
+                                <option selected value="toate">Toate</option>
+                                <% for (let c of locals.culori) { %>
+                                    <option value="<%- c.unnest %>"><%- c.unnest %> </option>
+                                <% } %>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <hr id="hrgradient">
+                <div class="row">
+                    <div class="col-8">
+                        <label>Pret:
+                            <input id="i_rad1" class="btn-check" checked name="gr_rad" value="toate" autocomplete=off type="radio"/>
+                            <label class="btn btn-outline-secondary" for="i_rad1">Toate</label>
+                            <input id="i_rad2" class="btn-check" name="gr_rad" value="0:400" autocomplete=off type="radio"/>
+                            <label class="btn btn-outline-secondary" for="i_rad2">Mic (&lt; 400)</label>
+                            <input id="i_rad3" class="btn-check" name="gr_rad" value="400:800" autocomplete=off type="radio"/>
+                            <label class="btn btn-outline-secondary" for="i_rad3">Mediu (&ge; 400 & &lt; 800)</label>
+                            <input id="i_rad4" class="btn-check" name="gr_rad" value="800:1000" autocomplete=off type="radio"/>
+                            <label class="btn btn-outline-secondary" for="i_rad4">Mare (&ge; 800)</label>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label>De strada:
+                            <input id="i_radio1" class="btn-check" checked name="gr_radio" value="toate" autocomplete=off type="radio"/>
+                            <label class="btn btn-outline-secondary" for="i_radio1">Toate</label>
+                            <input id="i_radio2" class="btn-check" name="gr_radio" value="true" autocomplete=off type="radio"/>
+                            <label class="btn btn-outline-secondary" for="i_radio2">Da</label>
+                            <input id="i_radio3" class="btn-check" name="gr_radio" value="false" autocomplete=off type="radio"/>
+                            <label class="btn btn-outline-secondary" for="i_radio3">Nu</label>
+                        </label>
+                    </div>
+                </div>
+            </div></br>
+            <button class="btn-custom1" id="filtrare"><i class="fa-solid fa-filter"></i> <span id="ascunde">Filtreaza</span></button> 
+            <button class="btn-custom1" id="resetare"><i class="fa-solid fa-gear"></i> <span id="ascunde">Reseteaza</span></button><br/>
+            <button class="btn-custom1" id="sortCrescNume"><i class="fa-solid fa-forward"></i> <span id="ascunde">Sorteaza crescator dupa pret si brand</span></button>
+            <button class="btn-custom1" id="sortDescrescNume"><i class="fa-solid fa-backward"></i> <span id="ascunde">Sorteaza descrescator dupa pret si brand</span></button>
+            <p id="p-suma">Apasati Alt+"c" pentru suma preturilor produselor afișate. </p>
+            <p id="afisare_suma"></p>
+            <section id="produse">
+                <h2>Produse</h2>
+                <div class="grid-produse">
+                    <% for( let prod of locals.produse) { %>
+                        <div class="card animated-card" style="background-color:transparent;">
+                            <div class="card-header" style="background-color:var(--culoare-mov);">
+                                <h3 class="nume">Nume: <a href="/produs/elem_<%-prod.id %>"><span class="val-nume"><%- prod.nume%></span></a></h3>
+                            </div>
+                            <div class="card-body">
+                                <table id="tabel-produse">
+                                    <tbody>
+                                        <tr>
+                                            <td class="pret">Pret: </td>
+                                            <td class="val-pret"><%- prod.pret%></td>
+                                            <td rowspan="7"><a href="/produs/elem_<%-prod.id %>"><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:105%;height:auto;" alt="[imagine <%- prod.nume %>]"/></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dimensiune">Dimensiune: </td>
+                                            <td class="val-dimensiune"><%- prod.dimensiune%></td>
+                                        </tr>
+                                        <tr>
 
-    <%- include("../fragmente/footer") %>
+                                            <td class="brand">Brand: </td>
+                                            <td class="val-brand"><%- prod.brand%></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="materiale">Materiale: </td>
+                                            <td class="val-materiale"><%- prod.materiale%></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="data_adaugare">Data adaugare: </td>
+                                            <td class="val-data_adaugare"><time><%- prod.data_adaugare%></time></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="de_strada">De strada: </td>
+                                            <td class="val-de_strada"><%- prod.de_strada%></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="culoare_principala">Culoare: </td>
+                                            <td class="val-culoare_principala"><%- prod.culoare_principala%></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <tfoot>
+                                    <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>
+                                    <p class="tip_produs">Tip Produs: <span class="val-tip_produs"><%- prod.tip_produs%></span></p>
+                                    <label class="selecteaza-cos">
+                                        Selectează:<br/>
+                                        <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                                    </label>
+                                </tfoot>
+                            </div>
+                            <div class="card-body">
+                                <a href="/produs/elem_<%-prod.id %>" class="card-link" style="color:var(--culoare-negru)">Accesati pagina produsului</a>
+                              </div>
+                        </div>
+                    <% }%>
+                </div>
+            </section>
+        </main>
+        <%- include("../fragmente/footer") %>
     </body>
 </html>

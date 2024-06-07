@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
+        <meta name="keywords" content="BBallStore, articole sportive, baschet, incaltaminte, pantaloni, tricou, jersey, accesorii, minge, genunchiere, cotiere, sosete, Nike, Adidas, Under Armour, Anta, Reebok, Puma, transport la domiciliu, Bucuresti">
+        <meta name="description" content="BBallStore ofera articole de baschet de cea mai buna calitate la pret bun. Avem produse Nike, Adidas, Under Armour. Livrare la domiciliu.">
         <%- include("../fragmente/head") %>     
         <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-    <%- include("../fragmente/header") %>
-
-    <main>
-        <section>
-            <h2>Pagină produs</h2>
+        <%- include("../fragmente/header") %>
+        <main>
+            <section>
+                <h2>Pagină produs</h2>
                 <article id="art-produs">
                     <h3><span class="nume"><%- locals.prod.nume %></span></h3>
                     <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
@@ -27,9 +26,8 @@
                         <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
                     </figure>    
                 </article>
-            
-        </section>
-    </main>
-    <%- include("../fragmente/footer") %>
+            </section>
+        </main>
+        <%- include("../fragmente/footer") %>
     </body>
 </html>

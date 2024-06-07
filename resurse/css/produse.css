@@ -32,42 +32,12 @@ main{
     grid-template-columns: 1fr 1fr;
     grid-gap:2rem;
 }
-.grid-produse .produs{
-    background-color: transparent;
-    color: var(--culoare-alb);
-    text-shadow: 2px 2px var(--culoare-negru);
-    border-radius: 2rem;
-    box-shadow: 0px 0px 0.8rem 0.3rem var(--culoare-rosu);
-    overflow: hidden;
-}
 
-.grid-produse .produs h3{
-    background-color: var(--culoare-mov);
-    text-align: center;
-    margin-top: 0;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-.grid-produse .produs h3 a{
+.grid-produse h3 a{
     color:black;
 }
-.grid-produse .produs h3 a:hover{
+.grid-produse h3 a:hover{
     color:white;
-}
-
-.grid-produse .produs p.categorie{
-
-    text-align:center;
-    font-weight:bold;
-}
-
-.grid-produse .produs .info-produse{
-    padding: 50px;
-}
-
-.produs{
-    position: relative;
 }
 
 .selecteaza-cos{
@@ -90,4 +60,11 @@ main{
 
 #inp-materiale{
     background-color: white;
+}
+
+.animated-card {
+    transform: translateY(20px);
+    transition: transform 0.5s ease;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }

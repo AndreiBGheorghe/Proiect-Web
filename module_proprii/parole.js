@@ -4,9 +4,10 @@ for(let interval of v_intervale){
     for(let i=interval[0]; i<=interval[1]; i++)
         sirAlphaNum+=String.fromCharCode(i)
 }
-
-console.log(sirAlphaNum);
-
+/**
+* @param {number} n Lungimea tokenului de generat
+* @returns {string} Un token alfanumeric de lungime n
+*/
 function genereazaToken(n){
     let token=""
     for (let i=0;i<n; i++){

@@ -1,6 +1,6 @@
 nav {
   --inaltime:2.2em;
-  --latime:7em;
+  --latime:5em;
 }
 
 #casameniu {
@@ -8,7 +8,7 @@ nav {
   position: relative;
   padding: 0.5em;
   margin: 0;
-  height: 1.2em;
+  height: 2.1em;
 }
 
 #acasabuton {
